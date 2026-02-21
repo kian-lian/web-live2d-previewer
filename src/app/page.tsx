@@ -1,11 +1,14 @@
-import Live2dModel from "@/components/live2d-model";
+import dynamic from "next/dynamic";
 
-const Home = () => {
-  return (
-    <div>
-      <Live2dModel />
+const Live2dViewer = dynamic(() => import("@/components/live2d-model"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-screen w-screen items-center justify-center">
+      <div className="text-muted-foreground">Initializing Live2D...</div>
     </div>
-  );
-};
+  ),
+});
 
-export default Home;
+export default function Home() {
+  return <Live2dViewer />;
+}
