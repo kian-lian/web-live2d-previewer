@@ -19,6 +19,9 @@ export default function Live2dViewer() {
   const initApp = useCallback(async (container: HTMLDivElement) => {
     const PIXI = await import("pixi.js");
 
+    // pixi-live2d-display requires window.PIXI to be set before import
+    (window as any).PIXI = PIXI;
+
     const app = new PIXI.Application({
       backgroundAlpha: 0,
       resizeTo: container,
@@ -41,8 +44,8 @@ export default function Live2dViewer() {
         modelRef.current = null;
       }
 
-      // Dynamic import to avoid SSR
-      const { Live2DModel } = await import("pixi-live2d-display");
+      // Dynamic import - use cubism4 subpath since all models are .moc3 format
+      const { Live2DModel } = await import("pixi-live2d-display/cubism4");
 
       const model = await Live2DModel.from(getModelPath(modelName), {
         autoInteract: false,
