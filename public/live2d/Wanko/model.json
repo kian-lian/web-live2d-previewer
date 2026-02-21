@@ -1,0 +1,113 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "./Wanko.moc3",
+    "Textures": ["./Wanko.1024/texture_00.png"],
+    "Physics": "Wanko.physics3.json",
+    "DisplayInfo": "Wanko.cdi3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "File": "motions/idle_01.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "待机2": [
+        {
+          "File": "motions/idle_02.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "待机3": [
+        {
+          "File": "motions/idle_03.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "待机4": [
+        {
+          "File": "motions/idle_04.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "摇头1": [
+        {
+          "File": "motions/shake_01.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "摇头2": [
+        {
+          "File": "motions/shake_02.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "触摸1": [
+        {
+          "File": "motions/touch_01.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "触摸2": [
+        {
+          "File": "motions/touch_02.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "触摸3": [
+        {
+          "File": "motions/touch_03.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "触摸4": [
+        {
+          "File": "motions/touch_04.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "触摸5": [
+        {
+          "File": "motions/touch_05.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "触摸6": [
+        {
+          "File": "motions/touch_06.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": ["PARAM_MOUTH_OPEN_Y"]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": ["PARAM_EYE_L_OPEN", "PARAM_EYE_R_OPEN"]
+    }
+  ],
+  "HitAreas": [
+    {
+      "Id": "HitArea",
+      "Name": "Body"
+    }
+  ]
+}

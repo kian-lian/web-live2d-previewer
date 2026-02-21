@@ -1,0 +1,90 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "./Natori.moc3",
+    "Textures": ["./Natori.2048/texture_00.png"],
+    "Physics": "Natori.physics3.json",
+    "Pose": "Natori.pose3.json",
+    "DisplayInfo": "Natori.cdi3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "File": "motions/mtn_00.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "待机1": [
+        {
+          "File": "motions/mtn_01.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "待机2": [
+        {
+          "File": "motions/mtn_02.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "动作1": [
+        {
+          "File": "motions/mtn_03.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "动作2": [
+        {
+          "File": "motions/mtn_04.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "动作3": [
+        {
+          "File": "motions/mtn_05.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "动作4": [
+        {
+          "File": "motions/mtn_06.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "动作5": [
+        {
+          "File": "motions/mtn_07.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": ["ParamMouthOpenY"]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": ["ParamEyeLOpen", "ParamEyeROpen"]
+    }
+  ],
+  "HitAreas": [
+    {
+      "Id": "HitAreaHead",
+      "Name": "Head"
+    },
+    {
+      "Id": "HitAreaBody",
+      "Name": "Body"
+    }
+  ]
+}

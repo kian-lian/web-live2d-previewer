@@ -1,0 +1,54 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "./Ren.moc3",
+    "Textures": ["./Ren.2048/texture_00.png"],
+    "Physics": "Ren.physics3.json",
+    "DisplayInfo": "Ren.cdi3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "File": "motions/mtn_01.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "动作1": [
+        {
+          "File": "motions/mtn_02.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "动作2": [
+        {
+          "File": "motions/mtn_03.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": ["ParamMouthOpenY"]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": ["ParamEyeLOpen", "ParamEyeROpen"]
+    }
+  ],
+  "HitAreas": [
+    {
+      "Id": "HitAreaBody",
+      "Name": "Body"
+    },
+    {
+      "Id": "HitAreaHead",
+      "Name": "Head"
+    }
+  ]
+}

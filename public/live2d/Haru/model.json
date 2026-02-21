@@ -1,0 +1,112 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "./Haru.moc3",
+    "Textures": ["./Haru.2048/texture_00.png", "./Haru.2048/texture_01.png"],
+    "Physics": "Haru.physics3.json",
+    "Pose": "Haru.pose3.json",
+    "UserData": "Haru.userdata3.json",
+    "DisplayInfo": "Haru.cdi3.json",
+    "Motions": {
+      "Idle": [
+        {
+          "File": "motions/haru_g_idle.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "待机": [
+        {
+          "File": "motions/haru_g_m15.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "点头": [
+        {
+          "File": "motions/haru_g_m01.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "挥手": [
+        {
+          "File": "motions/haru_g_m02.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "思考": [
+        {
+          "File": "motions/haru_g_m03.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "开心": [
+        {
+          "File": "motions/haru_g_m04.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "害羞": [
+        {
+          "File": "motions/haru_g_m05.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "说话1": [
+        {
+          "File": "motions/haru_g_m06.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "说话2": [
+        {
+          "File": "motions/haru_g_m09.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "惊讶": [
+        {
+          "File": "motions/haru_g_m20.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ],
+      "欢呼": [
+        {
+          "File": "motions/haru_g_m26.motion3.json",
+          "FadeInTime": 0.5,
+          "FadeOutTime": 0.5
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": ["ParamMouthOpenY"]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": ["ParamEyeLOpen", "ParamEyeROpen"]
+    }
+  ],
+  "HitAreas": [
+    {
+      "Id": "HitArea",
+      "Name": "Head"
+    },
+    {
+      "Id": "HitArea2",
+      "Name": "Body"
+    }
+  ]
+}
