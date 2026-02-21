@@ -1,7 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { DEFAULT_MODEL, type ModelName, getModelPath, MODEL_NAMES } from "@/lib/live2d-config";
+import {
+  DEFAULT_MODEL,
+  getModelPath,
+  MODEL_NAMES,
+  type ModelName,
+} from "@/lib/live2d-config";
 
 type MotionGroup = { group: string; name: string; index: number };
 
@@ -12,6 +17,7 @@ export default function Live2dViewer() {
 
   const [currentModel, setCurrentModel] = useState<ModelName>(DEFAULT_MODEL);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [expressions, setExpressions] = useState<string[]>([]);
   const [motions, setMotions] = useState<MotionGroup[]>([]);
 
@@ -33,17 +39,18 @@ export default function Live2dViewer() {
   }, []);
 
   // Load a model into the Pixi stage
-  const loadModel = useCallback(
-    async (app: any, modelName: ModelName) => {
-      setIsLoading(true);
+  const loadModel = useCallback(async (app: any, modelName: ModelName) => {
+    setIsLoading(true);
+    setError(null);
 
-      // Remove old model
-      if (modelRef.current) {
-        app.stage.removeChild(modelRef.current);
-        modelRef.current.destroy();
-        modelRef.current = null;
-      }
+    // Remove old model
+    if (modelRef.current) {
+      app.stage.removeChild(modelRef.current);
+      modelRef.current.destroy();
+      modelRef.current = null;
+    }
 
+    try {
       // Dynamic import - use cubism4 subpath since all models are .moc3 format
       const { Live2DModel } = await import("pixi-live2d-display/cubism4");
 
@@ -56,8 +63,9 @@ export default function Live2dViewer() {
       const scaleY = app.screen.height / model.height;
       const scale = Math.min(scaleX, scaleY) * 0.8;
       model.scale.set(scale);
-      model.x = (app.screen.width - model.width * scale) / 2;
-      model.y = (app.screen.height - model.height * scale) / 2;
+      // After scale.set(), model.width/height already reflect scaled dimensions
+      model.x = (app.screen.width - model.width) / 2;
+      model.y = (app.screen.height - model.height) / 2;
 
       app.stage.addChild(model);
       modelRef.current = model;
@@ -88,10 +96,16 @@ export default function Live2dViewer() {
         }
       }
       setMotions(motionList);
-      setIsLoading(false);
-    },
-    [],
-  );
+    } catch (e) {
+      console.error(`Failed to load model ${modelName}:`, e);
+      setExpressions([]);
+      setMotions([]);
+      setError(
+        `Failed to load "${modelName}". The model may require a newer Cubism SDK version.`,
+      );
+    }
+    setIsLoading(false);
+  }, []);
 
   // Setup Pixi app on mount
   useEffect(() => {
@@ -183,6 +197,13 @@ export default function Live2dViewer() {
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-muted-foreground">Loading model...</div>
+          </div>
+        )}
+        {error && !isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-destructive/10 text-destructive border border-destructive/20 rounded-lg px-6 py-4 max-w-md text-center text-sm">
+              {error}
+            </div>
           </div>
         )}
       </div>
