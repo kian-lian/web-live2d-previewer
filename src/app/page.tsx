@@ -1,3 +1,5 @@
+"use client";
+
 import dynamic from "next/dynamic";
 
 const Live2dViewer = dynamic(() => import("@/components/live2d-model"), {
